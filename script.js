@@ -33,15 +33,21 @@ function convertHexToNumber (value) {
 
 function decimalParaBases(number, base) {
     let convertedNumber = []
-    while(number >= base) {
-        let element = number % base
-        number = Math.floor(number/base)
-        convertedNumber.push(convertNumberToHex(element))
-        if (number < base) {
-            element = number
+    if (number < base) {
+        convertedNumber.push(convertNumberToHex(number))
+        return convertedNumber.reverse().join('')
+    } else {
+        while(true) {
+            let element = number % base
+            number = Math.floor(number/base)
             convertedNumber.push(convertNumberToHex(element))
+            if (number < base) {
+                element = number
+                convertedNumber.push(convertNumberToHex(element))
+                break
+            }
         }
-    }
+    }  
     return convertedNumber.reverse().join('')
 }
 
@@ -56,21 +62,44 @@ function basesParaDecimal (number, base) {
             valor += parseInt(convertHexToNumber(arrayNumber[i])) * (base**i)
         }
     }
-    console.log(valor)
+    return valor
 }
 
 /* console.log(decimalParaBases(1532, 2))
 console.log(decimalParaBases(1532, 8))
 console.log(decimalParaBases(1532, 16)) */
 
-basesParaDecimal('00101010', 2)
-
+/* basesParaDecimal('00101010', 2)
 basesParaDecimal('52', 8)
-basesParaDecimal('2A', 16)
+basesParaDecimal('2A', 16) */
 
-function convert() {
-    const input = document.querySelector('#input').value
-    const selectInput = document.querySelector('#select-input')
-    const output = document.querySelector('#output')
-    alert(selectInput.value)
-}
+
+function calculate (type) {
+    const Decimal = document.querySelector('#decimal')
+    const Binario = document.querySelector('#binario')
+    const Octal = document.querySelector('#octal')
+    const Hexadecimal = document.querySelector('#hexadecimal')
+
+    Decimal.addEventListener(onchange, () => {
+        
+    })
+    if (type === 'decimal') {
+        let numberDecimal = Decimal.value
+        let numberBinario = decimalParaBases(numberDecimal, 2)
+        Binario.value = numberBinario
+        let numberOctal = decimalParaBases(numberDecimal, 8)
+        Octal.value = numberOctal
+        let numberHexadecimal = decimalParaBases(numberDecimal, 16)
+        Hexadecimal.value = numberHexadecimal
+    } 
+
+    if (type === 'binario') {
+        let numberBinario = Binario.value
+        let numberDecimal = basesParaDecimal(`${numberBinario}`, 2)
+        Decimal.value = numberDecimal
+        let numberOctal = decimalParaBases(numberDecimal, 8)
+        Octal.value = numberOctal
+        let numberHexadecimal = decimalParaBases(numberDecimal, 16)
+        Hexadecimal.value = numberHexadecimal
+    }
+} 
