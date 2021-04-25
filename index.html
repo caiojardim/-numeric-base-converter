@@ -4,44 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=div, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <h1>Conversor de Bases</h1>
     <div>
-        <Label>Decimal:<input 
+        <label><span>Decimal:</span><input 
             type="text" 
             id='decimal' 
             onchange="calculate('decimal')"
             onkeyup="this.onchange();" 
             onpaste="this.onchange();" 
             oninput="this.onchange();"
-        />
-        <Label>Binario:<input 
+            />
+        </label>
+        <Label><span>Binario:</span><input 
             type="text" 
             id='binario' 
             onchange="calculate('binario')"
             onkeyup="this.onchange();" 
             onpaste="this.onchange();" 
             oninput="this.onchange();"
-        />
-        <Label>Octal:<input 
+            />
+        </label>
+        <Label><span>Octal:</span><input 
             type="text" 
             id='octal' 
             onchange="calculate('octal')"
             onkeyup="this.onchange();" 
             onpaste="this.onchange();" 
             oninput="this.onchange();"
-        />
-        <Label>Hexadecimal:<input 
+            />
+        </label>
+        <Label><span>Hexadecimal:</span><input 
             type="text" 
             id='hexadecimal' 
             onchange="calculate('hexadecimal')"
             onkeyup="this.onchange();" 
             onpaste="this.onchange();" 
             oninput="this.onchange();"
-        />
+            />
+        </label>
         <!-- <Label>BCD:<input type="text" id='bcd'></Label> -->
     </div>
     <script src="script.js"></script>

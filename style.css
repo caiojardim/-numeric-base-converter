@@ -1,5 +1,26 @@
+body {
+    font-size: 2rem;
+    font-family: Roboto, sans-serif;
+
+    text-align: center;
+    align-items: center;
+    background-color: antiquewhite;
+}
+
 label {
     display: block;
+}
+
+label span {
+    text-align: left;
+    display: inline-block;
+    width: 12rem;
+}
+
+label input {
+    width: 50%;
+    height: 30px;
+    font-size: 2rem;
 }
 
 input {

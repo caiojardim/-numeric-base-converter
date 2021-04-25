@@ -52,6 +52,9 @@ function decimalParaBases(number, base) {
 }
 
 function basesParaDecimal (number, base) {
+    if (number === '') {
+        return ''
+    }
     let arrayNumber = number.split('')
     arrayNumber.reverse()
     let valor = parseInt(arrayNumber[i])
@@ -69,6 +72,7 @@ function basesParaDecimal (number, base) {
 console.log(decimalParaBases(1532, 8))
 console.log(decimalParaBases(1532, 16)) */
 
+basesParaDecimal('', 2)
 /* basesParaDecimal('00101010', 2)
 basesParaDecimal('52', 8)
 basesParaDecimal('2A', 16) */
@@ -80,9 +84,6 @@ function calculate (type) {
     const Octal = document.querySelector('#octal')
     const Hexadecimal = document.querySelector('#hexadecimal')
 
-    Decimal.addEventListener(onchange, () => {
-        
-    })
     if (type === 'decimal') {
         let numberDecimal = Decimal.value
         let numberBinario = decimalParaBases(numberDecimal, 2)
@@ -101,5 +102,24 @@ function calculate (type) {
         Octal.value = numberOctal
         let numberHexadecimal = decimalParaBases(numberDecimal, 16)
         Hexadecimal.value = numberHexadecimal
+    }
+
+    if (type === 'octal') {
+        let numberOctal = Octal.value
+        let numberDecimal = basesParaDecimal(`${numberOctal}`, 8)
+        Decimal.value = numberDecimal
+        let numberBinario = decimalParaBases(numberDecimal, 2)
+        Binario.value = numberBinario
+        let numberHexadecimal = decimalParaBases(numberDecimal, 16)
+        Hexadecimal.value = numberHexadecimal
+    }
+    if (type === 'hexadecimal') {
+        let numberHexadecimal = Hexadecimal.value
+        let numberDecimal = basesParaDecimal(`${numberHexadecimal}`, 16)
+        Decimal.value = numberDecimal
+        let numberBinario = decimalParaBases(numberDecimal, 2)
+        Binario.value = numberBinario
+        let numberOctal = decimalParaBases(numberDecimal, 8)
+        Octal.value = numberOctal
     }
 } 
