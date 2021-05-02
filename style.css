@@ -1,10 +1,9 @@
 body {
     font-size: 2rem;
     font-family: Roboto, sans-serif;
-
     text-align: center;
     align-items: center;
-    background-color: antiquewhite;
+    background-color: rgb(149, 171, 240);
 }
 
 label {

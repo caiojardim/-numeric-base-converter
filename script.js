@@ -123,3 +123,63 @@ function calculate (type) {
         Octal.value = numberOctal
     }
 } 
+
+const Decimal = document.querySelector('#decimal')
+const Binario = document.querySelector('#binario')
+const Octal = document.querySelector('#octal')
+const Hexadecimal = document.querySelector('#hexadecimal')
+
+const valoresDecimais = ['0', '1', '2', '3', '4', '5','6', '7','8', '9']
+const valoresBinarios = ['0', '1']
+const valoresOctal = ['0', '1', '2', '3', '4', '5', '6','7']
+const valoresHexadecimal = ['0', '1', '2', '3', '4', '5','6','7','8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+
+Decimal.addEventListener("keypress", function(e) {
+    let add = false
+    valoresDecimais.forEach(number => {
+        if(e.key === number) {
+            add = true
+        }
+    })
+    if (!add) {
+        e.preventDefault()
+    }  
+})
+
+Binario.addEventListener("keypress", function(e) {
+    let add = false
+    valoresBinarios.forEach(number => {
+        if(e.key === number) {
+            add = true
+        }
+    })
+    if (!add) {
+        e.preventDefault()
+    }  
+})
+
+Octal.addEventListener("keypress", function(e) {
+    let add = false
+    valoresOctal.forEach(number => {
+        if(e.key === number) {
+            add = true
+        }
+    })
+    if (!add) {
+        e.preventDefault()
+    }  
+})
+
+Hexadecimal.addEventListener("keypress", function(e) {
+    e.preventDefault()
+    let key = e.key.toUpperCase()  
+    let add = false
+    valoresHexadecimal.forEach(number => {
+        if(key === number) {
+            add = true
+        }
+    })
+    if (add) {
+        Hexadecimal.value += key
+    }  
+})

@@ -1,3 +1,0 @@
-Issues:
-
--Validação para não poder por exemplo colocar algo alem de 0 e 1 em binario e etc...
