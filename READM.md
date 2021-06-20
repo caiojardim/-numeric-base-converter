@@ -1,3 +1,0 @@
-ideais
-
-- Simplificar codigo js
